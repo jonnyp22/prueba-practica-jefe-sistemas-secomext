@@ -1,1 +1,22 @@
+<mat-card>
+  <mat-table [dataSource]="products">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.price | currency }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef> Categoría </mat-header-cell>
+      <mat-cell *matCellDef="let product">{{ product.category }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['name', 'price', 'category']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'price', 'category'];"></mat-row>
+  </mat-table>
+</mat-card>
 
